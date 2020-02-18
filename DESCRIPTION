@@ -1,0 +1,11 @@
+Package: trackR
+Type: Package
+Title: R tools and functions to compute jump analysis, describe and infer from single-molecule tracking data
+Version: 0.1.2
+Author: Julien Godet
+Maintainer: JuG <julien.godet@unistra.fr>
+Description: The jump-distance (JD), defined as the distance travelled by a single molecule during a fixed time lag Tau has a distribution (JDD) over the population of molecules that reflects fine features of the underlying transport.    The JDD analysis takes advantage of the fact that modern, powerful imaging systems and tracking algorithm produce generally a large number of individual trajectories allowing to plot well-resolved JD distributions
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
