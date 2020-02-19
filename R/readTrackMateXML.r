@@ -12,7 +12,7 @@
 #' xmlPath <- "/Users/jgodet/Desktop/sv1.xml"
 #' readTrackMateXML(XMLpath = xmlPath)
 #'
-#' @return 
+#' @return data frame
 #' @export
 
 
