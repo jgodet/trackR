@@ -7,7 +7,7 @@
 jump(data, spaceRes)
 }
 \arguments{
-\item{data}{Dataframe with track (track identification) and t (frame or time) variable}
+\item{data}{Dataframe with track (trace identification) and t (frame or time) variable}
 
 \item{spaceRes}{Pixel size}
 }

@@ -2,29 +2,32 @@
 % Please edit documentation in R/plotDiffusionMap.r
 \name{plotDiffusionMap}
 \alias{plotDiffusionMap}
-\title{Do something}
+\title{Plot Diffusion Map}
 \usage{
-plotDiffusionMap(azc2, nbPix = 2, jdRange = c(0, 12),
-  colRange = NULL, ...)
+plotDiffusionMap(data, traceNb, nbPix = 20, jumpMax, nbCol = 10)
 }
 \arguments{
-\item{azc2}{dataframe with x, y, track, jd and cluster variable}
+\item{data}{data frame (muste contain trace, x, y, and jump)}
 
-\item{nbPix}{boxsize (expressed in x or y units)}
+\item{traceNb}{(optional) number id of the traces to plot}
 
-\item{jdRange}{jump distance limit (ignore all jumps larger than jdlim)}
-
-\item{colRange}{rage of jump distance}
+\item{nbPix}{number of pixel (or calibrated distance) to add on each x-and y-range tail}
+}
+\value{
+plot
 }
 \description{
-Do something
+Plot Diffusion Map
+}
+\details{
+Plot Diffusion Map or more exactly jump distance map as in Fig 2c of Gasser et al. 2020 doi:10.1017/S0033583519000155
 }
 \examples{
-
-dataTest <- expData[expData$cluster \%in\% "PvdA9_8",]
-plotDiffusionMap(dataTest, nbPix=.5 )
-gcont <- getContour(dataTest[, c("x","y")],drawContour = FALSE)
-drawRod(gcont,lty=3)
+xmlPath <- "/Users/jgodet/Seafile/MaBibliotheque/Code/TrackMate/nmeth.2808-sv1.xml"
+data <- readTrackMateXML(XMLpath = xmlPath)
+data$jump<-jump(data, spaceRes=1)
+plotDiffusionMap(data = data,traceNb = c(12),nbPix = 5 )
+plotDiffusionMap(data = data,nbPix = 5 )
 }
 \author{
 JuG

@@ -1,47 +1,53 @@
 # plotDiffusionMap.r
 # written by JuG
-# January 10 2018
+# February 27 2020
 
 
-#' Do something
+#' Plot Diffusion Map
 #' @author JuG
-#' @description
-#' @param azc2 dataframe with x, y, track, jd and cluster variable
-#' @param nbPix boxsize (expressed in x or y units)
-#' @param jdRange jump distance limit (ignore all jumps larger than jdlim)
-#' @param colRange rage of jump distance
-#' @details
-#' @examples
-#'
-#'dataTest <- expData[expData$cluster %in% "PvdA9_8",]
-#'plotDiffusionMap(dataTest, nbPix=.5 )
-#'gcont <- getContour(dataTest[, c("x","y")],drawContour = FALSE)
-#'drawRod(gcont,lty=3)
-#' @return
+#' @description 
+#' @param data  data frame (muste contain trace, x, y, and jump)
+#' @param traceNb (optional) number id of the traces to plot
+#' @param nbPix number of pixel (or calibrated distance) to add on each x-and y-range tail
+#' 
+#' @details 
+#' Plot Diffusion Map or more exactly jump distance map as in Fig 2c of Gasser et al. 2020 doi:10.1017/S0033583519000155
+#' @examples 
+#' xmlPath <- "/Users/jgodet/Seafile/MaBibliotheque/Code/TrackMate/nmeth.2808-sv1.xml"
+#' data <- readTrackMateXML(XMLpath = xmlPath)
+#' data$jump<-jump(data, spaceRes=1)
+#' plotDiffusionMap(data = data,traceNb = c(12),nbPix = 5 )
+#' plotDiffusionMap(data = data,nbPix = 5 )
+#' @return plot
 #' @export
 
 
-plotDiffusionMap <- function(azc2,nbPix=2,jdRange = c(0,12), colRange = NULL, ...){
-
-  xlimits = range(azc2[,"x"]) + c(-nbPix,nbPix)
-  ylimits = range(azc2[,"y"]) + c(-nbPix,nbPix)
-  xmed <- azc2[,"x"]
-  ymed  <-azc2[,"y"]
-
-  plot(NA,xlim=xlimits,ylim=ylimits,asp=1,...)
-  if(is.null(colRange)){
-    colRange <- c(min(azc2$jd,na.rm=T), max(azc2$jd,na.rm=T))
+plotDiffusionMap <- function(data, traceNb,nbPix=20, jumpMax, nbCol = 10){
+  if(missing(traceNb)){
+    traceNb <- as.numeric(unique(data$trace))
   }
-  jumpCut <- as.numeric(cut(azc2$jd,seq(colRange[1],colRange[2],length=10)))
-  coul <- matlab.like(10)
-  azc2$colo <- coul[jumpCut]
-
-  data= azc2[,]
-    for (i in 1:dim(data)[1]){
-      if(!is.na(data[i,"jd"]) & data[i,"jd"] < jdRange[2] & data[i,"jd"] >= jdRange[1] ){
-        if(data[i-1,"track"] == data[i,"track"]){
-          segments(data[i-1,"x"],data[i-1,"y"],data[i,"x"],data[i,"y"], col=data$colo[i])
-        }
+  if(missing(jumpMax)){
+    jumpMax <- max(data$jump, na.rm = T)
+  }
+  if(!require(colorRamps)){install.packages('colorRamps')}
+  require(colorRamps)
+  xlimits = range(data[data$trace %in% traceNb,"x"])+c(-1,1)*nbPix
+  ylimits = range(data[data$trace %in% traceNb,"y"])+c(-1,1)*nbPix
+  xmed <- data[data$trace %in% traceNb,"x"]
+  ymed  <- data[data$trace %in% traceNb,"y"]
+    
+  plot(NA,xlim=xlimits,ylim=ylimits,asp=1)
+  jumpCut <- as.numeric(cut(data$jump,breaks = seq(0,jumpMax, length.out = nbCol)))
+  coul <- matlab.like(nbCol)
+  data$colo <- coul[jumpCut]
+  
+  for (j in seq(along=traceNb)){
+    dataPlot= data[data$trace==traceNb[j],]
+    for (i in 1:dim(dataPlot)[1]){
+      if(!is.na(dataPlot[i,"jump"])){
+        segments(dataPlot[i-1,"x"],dataPlot[i-1,"y"],dataPlot[i,"x"],dataPlot[i,"y"], col=dataPlot$colo[i])
       }
     }
+  }
+  return("Plot done")
 }

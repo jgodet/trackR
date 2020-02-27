@@ -9,9 +9,10 @@
 #' @param XMLpath path to the xml file
 #' @details 
 #' @examples 
-#' xmlPath <- "/Users/jgodet/Desktop/sv1.xml"
-#' readTrackMateXML(XMLpath = xmlPath)
-#'
+#' xmlPath <- "/Users/jgodet/Seafile/MaBibliotheque/Code/TrackMate/nmeth.2808-sv1.xml"
+#' data <- readTrackMateXML(XMLpath = xmlPath)
+#' jd<-jump(data, spaceRes=1)
+#' hist(jd, breaks=50)
 #' @return data frame
 #' @export
 
@@ -19,6 +20,8 @@
 readTrackMateXML<- function(XMLpath){
   if(!require("xml2")){devtools::install_github("r-lib/xml2")}
   require("xml2")
+  if(!require("XML")){install.packages('XML')}
+  require("XML")
   e = xmlParse(XMLpath)
   #e <- xmlTreeParse(XMLpath)
   
@@ -38,7 +41,7 @@ readTrackMateXML<- function(XMLpath){
   for (i in 2:9){
     dtf[,i] <- round(as.numeric(as.character(dtf[,i])),3)
   }
-  names(dtf) <- c("ID","Frame","MEDIAN_INTENSITY","MEAN_INTENSITY", "TOTAL_INTENSITY", "SNR", "POSITION_X", "POSITION_Y", "STANDARD_DEVIATION")
+  names(dtf) <- c("ID","t","MEDIAN_INTENSITY","MEAN_INTENSITY", "TOTAL_INTENSITY", "SNR", "x", "y", "STANDARD_DEVIATION")
   
   
   IDtrace <- data.frame(ID=NA, trace=NA)  
@@ -52,7 +55,7 @@ readTrackMateXML<- function(XMLpath){
   }
   
   daten <- merge(IDtrace,dtf, by="ID")
-  daten <- daten[order(daten$trace, daten$Frame),]
+  daten <- daten[order(daten$trace, daten$t),]
   
   return(daten)
 }

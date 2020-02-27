@@ -9,13 +9,17 @@ readTrackMateXML(XMLpath)
 \arguments{
 \item{XMLpath}{path to the xml file}
 }
+\value{
+data frame
+}
 \description{
 read TrackMate XML output files
 }
 \examples{
-xmlPath <- "/Users/jgodet/Desktop/sv1.xml"
-readTrackMateXML(XMLpath = xmlPath)
-
+xmlPath <- "/Users/jgodet/Seafile/MaBibliotheque/Code/TrackMate/nmeth.2808-sv1.xml"
+data <- readTrackMateXML(XMLpath = xmlPath)
+jd<-jump(data, spaceRes=1)
+hist(jd, breaks=50)
 }
 \author{
 JuG
