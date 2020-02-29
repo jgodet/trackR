@@ -20,7 +20,7 @@
 #' fitJumpDistHist(data=data, xlim=c(0,10), col=rgb(.2,.2,.2,.2), main="test")
 #' # Results are affected by the histogram binning
 #' fitJumpDistHist(data=data, breaks = 30)
-#' fitJumpDistHist(data=data, breaks = 200)
+#' fitJumpDistHist(data=data, breaks = 150)
 #' fitJumpDistHist(data=data, nbPop=3)
 #' fitJumpDistHist(data=data, nbPop=2, initHist = list(D2 = .01,  D1=.1, D3=10, D4=100))
 #' @return 
@@ -38,8 +38,8 @@ fitJumpDistHist<- function(data, nbPop = 1, initHist = list(D2 = 200,  D1=0.1), 
   hdata<-data.frame(counts=hd$counts,mid=hd$mids,
                     countsCum = cumsum(hd$counts)/sum(hd$counts))
   
-  if(missing(ylim)){xlim <- c(0,1.5*max(hdata$counts))}
-  if(missing(xlim)){ylim <- c(0,1.5*max(hdata$mid))}
+  if(missing(xlim)){xlim <- c(0,1.1*max(hdata$mid))}
+  if(missing(ylim)){ylim <- c(0,1.5*max(hdata$counts))}
   if(missing(xlab)){xlab  <- 'Displacement, µm'}
   if(missing(main)){main  <- ''}
   

@@ -16,7 +16,7 @@
 #' xmlPath <- "/Users/jgodet/Seafile/MaBibliotheque/Code/TrackMate/nmeth.2808-sv3.xml"
 #' data <- readTrackMateXML(XMLpath = xmlPath)
 #' data$jump<-jump(data, spaceRes=1)
-#' #' fitJumpDistECDF(data=data, nbPop = 1)
+#' fitJumpDistECDF(data=data, nbPop = 1)
 #' fitJumpDistECDF(data=data, nbPop = 1, cex=.85, colLine = 'green')
 #' fitJumpDistECDF(data=data, nbPop = 2,  initECDF = list(D1=0.001, D2=.4, D3=.1), cex=.85, colLine = 'green')
 
@@ -24,7 +24,7 @@
 #' @export
 
 
-fitJumpDistECDF<- function(data, nbPop=1, initECDF = list(D1=0.05),timeRes = 1,xlab, ylab, main,cex,colLine = 'red',...){
+fitJumpDistECDF<- function(data, nbPop=1, initECDF = list(D1=0.05),timeRes = 1,xlab, ylab, main,cex,colLine = 'red',breaks = 150,...){
   
   if(nbPop>2){
     cat('Un peu de patience...\n')

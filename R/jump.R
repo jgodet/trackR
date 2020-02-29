@@ -5,11 +5,11 @@
 # Original function : Julien Godet
 # Refactored by : Julien Godet
 
-#' Compute jump distance between consecutive localisations
-#' @description  Extra things
+#' Compute jump distance 
+#' @description  Compute jump distance within a frame between two consecutive frames. Note that if a gap exist between consecutive frames (gap-closing frame gap) the jump is calculated as the average displacement (distance / delta frame)  
 #' @author Julien Godet
 #'
-#' @param data Dataframe with track (trace identification) and t (frame or time) variable
+#' @param data Dataframe with track (trace identification) and Frame variable
 #' @param spaceRes Pixel size
 #' @examples a <- 2
 #' b <- 2 * a
@@ -18,12 +18,12 @@
 
 jump<-function(data,spaceRes){
   jump<-numeric() #declarer les jumps
-  deltaT <- numeric() #declarer les deltas temps
+  deltaFrame <- numeric() #declarer les deltas temps
   jump[1] <- NA
   deltaT[1] <- NA
   data <- data[order(data$trace,data$t),] #ordonne dataframe en track puis temps
   for (i in 2:dim(data)[1]){
-    deltaT[i] <-data[i,'t']-data[i-1,'t']
+    deltaFrame[i] <-data[i,'Frame']-data[i-1,'Frame']
     if(data$trace[i]==data$trace[i-1]){    #si trace identique calcul
       #calcul jump entre 2 frames
       jump[i]<-sqrt(((data[i,'y']-data[i-1,'y'])*spaceRes)^2+
@@ -32,5 +32,5 @@ jump<-function(data,spaceRes){
       jump[i]<-NA        #sinon NA
     }
   }
-  return(jump/deltaT)
+  return(jump/deltaFrame)
 }
