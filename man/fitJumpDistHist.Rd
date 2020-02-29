@@ -29,7 +29,7 @@ fitJumpDistHist(data=data, nbPop = 1, initHist = list(D2 = 200,  D1=0.1))
 fitJumpDistHist(data=data, xlim=c(0,10), col=rgb(.2,.2,.2,.2), main="test")
 # Results are affected by the histogram binning
 fitJumpDistHist(data=data, breaks = 30)
-fitJumpDistHist(data=data, breaks = 200)
+fitJumpDistHist(data=data, breaks = 150)
 fitJumpDistHist(data=data, nbPop=3)
 fitJumpDistHist(data=data, nbPop=2, initHist = list(D2 = .01,  D1=.1, D3=10, D4=100))
 }

@@ -2,17 +2,17 @@
 % Please edit documentation in R/jump.R
 \name{jump}
 \alias{jump}
-\title{Compute jump distance between consecutive localisations}
+\title{Compute jump distance}
 \usage{
 jump(data, spaceRes)
 }
 \arguments{
-\item{data}{Dataframe with track (trace identification) and t (frame or time) variable}
+\item{data}{Dataframe with track (trace identification) and Frame variable}
 
 \item{spaceRes}{Pixel size}
 }
 \description{
-Extra things
+Compute jump distance within a frame between two consecutive frames. Note that if a gap exist between consecutive frames (gap-closing frame gap) the jump is calculated as the average displacement (distance / delta frame)
 }
 \examples{
 a <- 2
