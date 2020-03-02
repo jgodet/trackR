@@ -30,7 +30,7 @@ lines(e,col='red')
 
 }
 \references{
-\item Radim Halir & Jan Flusser. 1998. Numerically stable direct least squares fitting of ellipses. Proceedings of the 6th International Conference in Central Europe on Computer Graphics and Visualization. WSCG '98, p. 125-132
+Radim Halir & Jan Flusser. 1998. Numerically stable direct least squares fitting of ellipses. Proceedings of the 6th International Conference in Central Europe on Computer Graphics and Visualization. WSCG '98, p. 125-132
 }
 \author{
 JuG
