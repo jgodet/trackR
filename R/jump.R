@@ -20,7 +20,7 @@ jump<-function(data,spaceRes){
   jump<-numeric() #declarer les jumps
   deltaFrame <- numeric() #declarer les deltas temps
   jump[1] <- NA
-  deltaT[1] <- NA
+  deltaFrame[1] <- NA
   data <- data[order(data$trace,data$t),] #ordonne dataframe en track puis temps
   for (i in 2:dim(data)[1]){
     deltaFrame[i] <-data[i,'Frame']-data[i-1,'Frame']
