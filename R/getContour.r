@@ -3,7 +3,7 @@
 # January 10 2018
 
 
-#' Return the convexhull contour of corrdinates
+#' Return the convexhull contour of coordinates
 #' @author JuG
 #' @description Return the convexhull contour of corrdinates
 #' @param data coordinate data

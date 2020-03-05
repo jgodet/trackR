@@ -12,12 +12,10 @@
 #' @examples 
 #' xmlPath <- "/Users/jgodet/Seafile/MaBibliotheque/Code/TrackMate/nmeth.2808-sv1.xml"
 
-#' tic()
+
 #' data <- readTrackMateXML(XMLpath = xmlPath)
-#' toc()
-#' tic()
+
 #' data <- readTrackMateXML(XMLpath = xmlPath, multiCore = FALSE)
-#' toc()
 #' data$jump<-jump(data, spaceRes=1)
 #' hist(data$jump, breaks=150)
 #' @return data frame

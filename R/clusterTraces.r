@@ -16,12 +16,13 @@
 #' xmlPath <- "//Users/jgodet/Seafile/MaBibliotheque/Hanna/1_3_MMStack_Pos0.ome.xml"
 #' data <- readTrackMateXML(XMLpath = xmlPath)
 #' data$jump<-jump(data, spaceRes=1)
-#' bacteria <- clusterTraces(dtf = data, eps = .2,minPts = 200)
+#' bacteria <- clusterTraces(dtf = data, eps = .2,minPts = 100)
 #' table(bacteria)
-#' bact1 <- data[which(bacteria==1),]
+#' bact1 <- data[which(bacteria==7),]
 #' summary(bact1)
 #' bact1 %>% select(x,y) %>% plot(., asp=1)
-#' drawRod(data = getContour(bact1))
+#' drawRod(data = getContour(bact1),col='green')
+#' drawRod(data = getContour(cleanNearest(data = bact1,k = 3)),col='blue')
 
 #' @return 
 #' @export

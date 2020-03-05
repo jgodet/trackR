@@ -3,7 +3,7 @@
 # January 10 2018
 
 
-#' Do something
+#' Draw rod contour
 #' @author JuG
 #' @description
 #' @param data coordinates of the contour
@@ -16,7 +16,8 @@
 #' @export
 
 
-drawRod<- function(data, ...){
+drawRod<- function(data,lwd, ...){
+  if(missing(lwd)){lwd <- 3}
   fit <- fitEllipse(data)
   A = pi * fit$major * fit$minor
   L = pi * 3 * (fit$major/2 + fit$minor/2) - sqrt(( 3 * fit$major/2 + fit$minor/2)*( fit$major/2 + 3 * fit$minor/2 ) )
@@ -47,6 +48,6 @@ drawRod<- function(data, ...){
   ypoints = yctr + yy * cos(theta) + xx * sin(theta)
   xpoints = c(xpoints,xpoints[1])
   ypoints = c(ypoints,ypoints[1])
-  lines(xpoints,ypoints, col='black',lwd=3,...)
+  lines(xpoints,ypoints,lwd=3,...)
   #text(paste(i),x = xctr +.5, y = yctr +.5)
 }

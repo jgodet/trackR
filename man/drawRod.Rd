@@ -2,15 +2,15 @@
 % Please edit documentation in R/drawRod.r
 \name{drawRod}
 \alias{drawRod}
-\title{Do something}
+\title{Draw rod contour}
 \usage{
-drawRod(data, ...)
+drawRod(data, lwd, ...)
 }
 \arguments{
 \item{data}{coordinates of the contour}
 }
 \description{
-Do something
+Draw rod contour
 }
 \examples{
 coord <- createSpheroCylinderCoord( l =1.8,r=.3,rot=120)

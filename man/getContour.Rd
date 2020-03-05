@@ -2,9 +2,9 @@
 % Please edit documentation in R/getContour.r
 \name{getContour}
 \alias{getContour}
-\title{Return the convexhull contour of corrdinates}
+\title{Return the convexhull contour of coordinates}
 \usage{
-getContour(data, drawContour = TRUE, nbPix = 10, ...)
+getContour(data, drawContour = FALSE, ...)
 }
 \arguments{
 \item{data}{coordinate data}
