@@ -17,12 +17,9 @@
 #' @export
 
 
-getContour<- function(data,drawContour=TRUE,nbPix=10,...){
-    xmed <- median(data[,1])
-    ymed  <-median(data[,2])
-    options( warn = -1 )
-    pPp <- ppp(data[,1],data[,2],c(xmed+c(-1,1)*nbPix),c(ymed+c(-1,1)*nbPix))
-    hpts <- convexhull(pPp)
+getContour<- function(data,drawContour=FALSE,...){
+  require(spatstat)
+    hpts <- convexhull.xy(x = data$x, y = data$y)
     options( warn = 1 )
     hpts$bdry[[1]]$x <- c(hpts$bdry[[1]]$x,hpts$bdry[[1]]$x[1])
     hpts$bdry[[1]]$y <- c(hpts$bdry[[1]]$y,hpts$bdry[[1]]$y[1])

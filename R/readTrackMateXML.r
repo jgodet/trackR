@@ -45,7 +45,7 @@ readTrackMateXML<- function(XMLpath, multiCore = TRUE){
   if(multiCore & numCores > 1){
     registerDoParallel(numCores)
     cat("Collecting data...\n")
-    attrName <- c("ID","FRAME","POSITION_T","MEDIAN_INTENSITY","MEAN_INTENSITY", "TOTAL_INTENSITY", "SNR", "POSITION_X", "POSITION_Y", "STANDARD_DEVIATION")
+    attrName <- c("name","FRAME","POSITION_T","MEDIAN_INTENSITY","MEAN_INTENSITY", "TOTAL_INTENSITY", "SNR", "POSITION_X", "POSITION_Y", "STANDARD_DEVIATION")
     
     dtf <- as.data.frame(foreach(i=1:10, .combine = cbind) %dopar% {
       sapply(subdoc, xmlGetAttr, attrName[i])
@@ -124,7 +124,7 @@ readTrackMateXML<- function(XMLpath, multiCore = TRUE){
     IDtrace <- rbind(IDtrace, data.frame(ID=paste("ID",IDvec,sep=''), trace=traceVec))
   }
   }
-  dtf[,1] <- as.character(paste("ID",dtf[,1],sep=''))
+  #dtf[,1] <- as.character(paste("ID",dtf[,1],sep=''))
   daten <- merge(IDtrace,dtf, by="ID")
 
   daten <- daten[order(daten$trace, daten$t),]
