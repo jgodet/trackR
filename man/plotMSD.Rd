@@ -2,9 +2,16 @@
 % Please edit documentation in R/plotMSD.r
 \name{plotMSD}
 \alias{plotMSD}
-\title{Do something}
+\title{Plot MSD}
 \usage{
-plotMSD(msdData, deltaT, fitMSD = TRUE, printMSDfit = TRUE, ...)
+plotMSD(
+  msdData,
+  deltaT,
+  fitMSD = TRUE,
+  printMSDfit = TRUE,
+  npoint4fit = 4,
+  ...
+)
 }
 \arguments{
 \item{msdData}{MSD data (list) (output of calcMSD function)}
@@ -14,9 +21,14 @@ plotMSD(msdData, deltaT, fitMSD = TRUE, printMSDfit = TRUE, ...)
 \item{fitMSD}{boolean}
 
 \item{printMSDfit}{boolean}
+
+\item{npoint4fit}{number of points to use for MSD fitting}
+}
+\value{
+
 }
 \description{
-Do something
+Plot MSD
 }
 \examples{
 

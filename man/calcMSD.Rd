@@ -11,6 +11,9 @@ calcMSD(data, N)
 
 \item{N}{for MSD, dt should be up to 1/N of number of data points (4 recommended)}
 }
+\value{
+
+}
 \description{
 Calculate Mean Square Distance
 }

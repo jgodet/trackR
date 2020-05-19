@@ -11,6 +11,9 @@ getEllipse(fit, n = 360)
 
 \item{n}{number of corrdinates points to build}
 }
+\value{
+
+}
 \description{
 Create coordinates of an ellipse from fit ellipse parameters
 }

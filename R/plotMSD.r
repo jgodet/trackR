@@ -3,13 +3,14 @@
 # March 08 2020
 
 
-#' Do something
+#' Plot MSD
 #' @author JuG
 #' @description 
 #' @param msdData MSD data (list) (output of calcMSD function)
 #' @param deltaT time elapsed between two consecutive frame
 #' @param fitMSD boolean 
 #' @param printMSDfit boolean
+#' @param npoint4fit number of points to use for MSD fitting
 #' @details 
 #' @examples 
 #'
@@ -18,7 +19,7 @@
 #' @export
 
 
-plotMSD <- function(msdData, deltaT, fitMSD =TRUE,printMSDfit=TRUE,...){
+plotMSD <- function(msdData, deltaT, fitMSD =TRUE,printMSDfit=TRUE,npoint4fit =4,...){
   if(missing(msdData)){
     return(cat('MSD data are missing'))
   }
@@ -38,7 +39,7 @@ plotMSD <- function(msdData, deltaT, fitMSD =TRUE,printMSDfit=TRUE,...){
     segments(x0 = i, y0 = msdData$mean[i] - msdData$sd[i], y1 =  msdData$mean[i] + msdData$sd[i],... )
   }
   if(fitMSD){
-    mod <- lm(mean~ tt - 1, weights = c(n), data=msdData)
+    mod <- lm(mean~ tt[1:npoint4fit] - 1, weights = c(n), data=msdData[1:npoint4fit,])
     abline(mod, col="red")
     if(printMSDfit){
       print(summary(mod))

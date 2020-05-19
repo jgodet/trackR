@@ -17,6 +17,9 @@ clusterTraces(dtf, coord = c("x", "y"), eps, minPts, method, ...)
 
 \item{method}{"dist" treats data as distance matrix (relatively fast but memory expensive), "raw" treats data as raw data and avoids calculating a distance matrix (saves memory but may be slow), "hybrid" expects also raw data, but calculates partial distance matrices (very fast with moderate memory requirements).}
 }
+\value{
+
+}
 \description{
 cluster traces in space (and/or time) using DBscan
 }

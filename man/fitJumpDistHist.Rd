@@ -4,8 +4,18 @@
 \alias{fitJumpDistHist}
 \title{Fit jump distribution histogram}
 \usage{
-fitJumpDistHist(data, nbPop = 1, initHist = list(D2 = 200, D1 = 0.1),
-  timeRes = 1, breaks = 100, xlim, ylim, xlab, main, ...)
+fitJumpDistHist(
+  data,
+  nbPop = 1,
+  initHist = list(D2 = 200, D1 = 0.1),
+  timeRes = 1,
+  breaks = 100,
+  xlim,
+  ylim,
+  xlab,
+  main,
+  ...
+)
 }
 \arguments{
 \item{data}{dataframe with jump}
@@ -17,6 +27,9 @@ fitJumpDistHist(data, nbPop = 1, initHist = list(D2 = 200, D1 = 0.1),
 \item{timeRes}{time resolution per unit of jump}
 
 \item{breaks}{binning of the histogram (number of breaks)}
+}
+\value{
+
 }
 \description{
 Fit jump distribution histogram

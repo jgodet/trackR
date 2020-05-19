@@ -4,8 +4,15 @@
 \alias{createTestEllipse}
 \title{Create a test ellipse}
 \usage{
-createTestEllipse(Rx = 300, Ry = 200, Cx = 250, Cy = 150,
-  Rotation = 0.4, N = 200, NoiseLevel = 10)
+createTestEllipse(
+  Rx = 300,
+  Ry = 200,
+  Cx = 250,
+  Cy = 150,
+  Rotation = 0.4,
+  N = 200,
+  NoiseLevel = 10
+)
 }
 \arguments{
 \item{Rx}{X-radius}
@@ -21,6 +28,9 @@ createTestEllipse(Rx = 300, Ry = 200, Cx = 250, Cy = 150,
 \item{N}{Nb of points}
 
 \item{NoiseLevel}{Gaussian Noise level}
+}
+\value{
+
 }
 \description{
 Create a test ellipse

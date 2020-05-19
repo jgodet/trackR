@@ -6,6 +6,9 @@
 \usage{
 cleanNearest(data, k = 10)
 }
+\value{
+
+}
 \description{
 Do something
 }

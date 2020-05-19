@@ -9,6 +9,9 @@ drawRod(data, lwd, ...)
 \arguments{
 \item{data}{coordinates of the contour}
 }
+\value{
+
+}
 \description{
 Draw rod contour
 }

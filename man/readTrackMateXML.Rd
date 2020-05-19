@@ -19,7 +19,9 @@ read TrackMate XML output files
 }
 \examples{
 xmlPath <- "/Users/jgodet/Seafile/MaBibliotheque/Code/TrackMate/nmeth.2808-sv1.xml"
+system.time(
 data <- readTrackMateXML(XMLpath = xmlPath)
+)
 data <- readTrackMateXML(XMLpath = xmlPath, multiCore = FALSE)
 data$jump<-jump(data, spaceRes=1)
 hist(data$jump, breaks=150)

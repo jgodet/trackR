@@ -11,6 +11,9 @@ fitEllipse(x, y = NULL)
 
 \item{y}{y.coordinates}
 }
+\value{
+
+}
 \description{
 Least squares fitting of an ellipse to point data
 }

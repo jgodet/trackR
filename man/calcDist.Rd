@@ -9,6 +9,9 @@ calcDist(data, spaceRes = 1)
 \arguments{
 \item{data}{a dataframe with 2 lines and 2 or 3 columns (x,y,(z))}
 }
+\value{
+
+}
 \description{
 Compute euclidian distance between 2 points
 }

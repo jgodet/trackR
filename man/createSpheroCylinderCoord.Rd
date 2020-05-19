@@ -4,8 +4,13 @@
 \alias{createSpheroCylinderCoord}
 \title{Do something}
 \usage{
-createSpheroCylinderCoord(N = 1000, l = 2, r = 0.3,
-  initialPos = c(1, 1, 0), rot = 0)
+createSpheroCylinderCoord(
+  N = 1000,
+  l = 2,
+  r = 0.3,
+  initialPos = c(1, 1, 0),
+  rot = 0
+)
 }
 \arguments{
 \item{N}{umber of points}
@@ -17,6 +22,9 @@ createSpheroCylinderCoord(N = 1000, l = 2, r = 0.3,
 \item{initialPos}{Initial position}
 
 \item{rot}{Rotation}
+}
+\value{
+
 }
 \description{
 None

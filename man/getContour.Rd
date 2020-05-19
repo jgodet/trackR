@@ -13,6 +13,9 @@ getContour(data, drawContour = FALSE, ...)
 
 \item{nbPix}{box size for the owin in ppp object}
 }
+\value{
+
+}
 \description{
 Return the convexhull contour of corrdinates
 }

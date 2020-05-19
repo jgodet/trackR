@@ -4,9 +4,19 @@
 \alias{fitJumpDistECDF}
 \title{Do something}
 \usage{
-fitJumpDistECDF(data, nbPop = 1, initECDF = list(D1 = 0.05),
-  timeRes = 1, xlab, ylab, main, cex, colLine = "red", breaks = 150,
-  ...)
+fitJumpDistECDF(
+  data,
+  nbPop = 1,
+  initECDF = list(D1 = 0.05),
+  timeRes = 1,
+  xlab,
+  ylab,
+  main,
+  cex,
+  colLine = "red",
+  breaks = 150,
+  ...
+)
 }
 \arguments{
 \item{data}{dataframe with jump}
@@ -16,6 +26,9 @@ fitJumpDistECDF(data, nbPop = 1, initECDF = list(D1 = 0.05),
 \item{timeRes}{time resolution per unit of jump}
 
 \item{initHist}{initialisation parameters for the nls fit for exmaple list(D2 = 200,  D1=0.1) or list(D2 = .01,  D1=.1, D3=10, D4=100)}
+}
+\value{
+
 }
 \description{
 Do something
